@@ -2,8 +2,6 @@ import React from 'react'
 
 function Stars({handleStarClick}) {
 
-  
-
   return (
     <div className="rate">
         <input onClick={() => handleStarClick(5)} type="radio" id="star5" name="rate" value="5" />

@@ -41,6 +41,27 @@ header {
   padding: 20px;
 }
 
+.feedback-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px;
+  color: white;
+  background-color: black;
+  width: 500px;
+  border-radius: 5%;
+}
+
+#submit-button:hover {
+  background-color:#3e868e;
+}
+#submit-button:active {
+  background-color: #3e868e;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 
 
 
