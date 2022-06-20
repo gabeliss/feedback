@@ -5,7 +5,7 @@ import { useContext } from 'react'
 
 function FeedbackList() {
 
-  const [feedback] = useContext(FeedbackContext)
+  const {feedback} = useContext(FeedbackContext)
 
   if (!feedback || feedback.length === 0) {
     return <p>No Feedback Yet</p>
@@ -14,7 +14,7 @@ function FeedbackList() {
   return (
     <div className='feedback-list'>
         {feedback.map(item => (
-          <FeedbackItem key='1' item={item} />
+          <FeedbackItem key={item.text} item={item} />
         ))}
     </div>
   )

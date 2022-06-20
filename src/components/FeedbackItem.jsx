@@ -1,9 +1,12 @@
 import React from 'react'
 
 function FeedbackItem({item}) {
+
   return (
     <div className='feedback-item'>
-        {item}
+        <div>{item.starRating}</div>
+        <div>{item.text}</div>
+        <div>{item.num}</div>
     </div>
   )
 }
