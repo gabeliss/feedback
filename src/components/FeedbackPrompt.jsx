@@ -3,6 +3,7 @@ import Stars from './Stars'
 import StaticStars from './StaticStars'
 import { useState } from 'react'
 import { useContext } from 'react'
+import { useEffect } from 'react'
 import FeedbackContext from '../FeedbackContext'
 
 function FeedbackPrompt() {
@@ -11,11 +12,20 @@ function FeedbackPrompt() {
 
   const [text, setText] = useState('')
 
+  const [submitText, setSubmitText] = useState('Send')
+
   const handleText = (e) => {
     setText(e.target.value)
   }
 
-  const {addFeedback} = useContext(FeedbackContext)
+  const {addFeedback, editedFeedback, updateFeedback} = useContext(FeedbackContext)
+
+  useEffect(() => {
+    if (editedFeedback.edit === true) {
+      setText(editedFeedback.item.text)
+      setSubmitText('Finish Editing')
+    }
+  }, [editedFeedback])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -32,10 +42,16 @@ function FeedbackPrompt() {
         text: text,
         num: starRating
       }
-      addFeedback(newFeedback)
+      if (editedFeedback.edit === true) {
+        updateFeedback(editedFeedback.item.id, newFeedback)
+      }
+      else {
+        addFeedback(newFeedback)
+      }
       document.getElementById('form').reset()
       setText('')
       setStarRating(0)
+      setSubmitText('Send')
     }
   }
 
@@ -44,8 +60,8 @@ function FeedbackPrompt() {
         <h1 style={{fontSize: 20}}>Select a rating out of 5 stars</h1>
         <Stars select={setStarRating} selected={starRating}/>
         <form onSubmit={handleSubmit} id='form'>
-          <input onChange={handleText} type='text' id='user-input' name='user-input' placeholder='Give Feedback'></input>
-          <input type="submit" id='submit-button' value='Send' />
+          <input onChange={handleText} type='text' value={text} id='user-input' name='user-input' placeholder='Give Feedback'></input>
+          <input type="submit" id='submit-button' value={submitText} />
         </form>
     </div>
   )

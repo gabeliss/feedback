@@ -16,7 +16,10 @@ function FeedbackStats() {
     feedback.forEach(item => {
         total += item.num
     })
-    const average = total / numReviews
+    var average = total / numReviews
+    if (average % 1 !== 0) {
+      average = average.toFixed(1)
+    }
 
   return (
     <div className='feedback-stats'>

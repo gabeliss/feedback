@@ -70,9 +70,31 @@ header {
   transform: translateY(4px);
 }
 
-.delete {
-  color: red;
+.editdelete {
   align-self: flex-end;
+  color: red;
+}
+
+.editdelete > button {
+  color: green;
+}
+
+.edit:hover {
+  cursor: pointer;
+}
+
+.edit:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.delete:hover {
+  cursor: pointer;
+}
+
+.delete:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 
