@@ -1,6 +1,7 @@
 import Header from './components/Header'
 import FeedbackPrompt from './components/FeedbackPrompt';
 import FeedbackList from './components/FeedbackList';
+import FeedbackStats from './components/FeedbackStats';
 import { FeedbackProvider } from './FeedbackContext';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Header />
         <div className='outer-container'>
           <FeedbackPrompt handleAddFeedback={addFeedback}/>
+          <FeedbackStats />
           <FeedbackList/>
         </div>
       </>

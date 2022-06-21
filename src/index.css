@@ -44,14 +44,21 @@ header {
 .feedback-item {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
   margin: 20px;
   color: white;
   background-color: black;
-  width: 500px;
+  width: 400px;
   border-radius: 5%;
   padding: 5px;
+}
+
+.feedback-stats {
+  display: flex;
+  justify-content: space-evenly;
+  width: 500px;
+  height: 20px;
 }
 
 #submit-button:hover {
@@ -63,7 +70,10 @@ header {
   transform: translateY(4px);
 }
 
-
+.delete {
+  color: red;
+  align-self: flex-end;
+}
 
 
 

@@ -29,7 +29,8 @@ function FeedbackPrompt() {
     else {
       const newFeedback = {
         starRating: <StaticStars selected={starRating}/>,
-        text: text
+        text: text,
+        num: starRating
       }
       addFeedback(newFeedback)
       document.getElementById('form').reset()
